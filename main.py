@@ -42,13 +42,10 @@ async def add_trace_id(request: Request, call_next):
 
 
 # --- Observability: Metrics ---
-# Sets up a /metrics endpoint for Prometheus
 @app.on_event("startup")
 async def startup():
-    Instrumentator().instrument(app).expose(app)
+    Instrumentator().expose(app)
 
-
-# --- API Endpoints ---
 @app.get("/")
 async def read_root(request: Request):
     # You can access the trace ID in your endpoints

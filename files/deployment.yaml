@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-fastapi-app
+spec:
+  replicas: 2 # Run two pods for availability
+  selector:
+    matchLabels:
+      app: my-fastapi-app
+  template:
+    metadata:
+      labels:
+        app: my-fastapi-app
+    spec:
+      containers:
+      - name: server
+        # !! IMPORTANT: Change this to your Docker Hub image !!
+        image: YOUR_USERNAME/my-devops-project:latest
+        imagePullPolicy: Always # Always pull the latest tag
+        ports:
+        - containerPort: 8000

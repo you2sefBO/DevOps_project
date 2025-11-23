@@ -10,13 +10,14 @@ jobs:
   build-and-scan:
     name: Build & SAST Scan
     runs-on: ubuntu-latest
-
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # --- Security: SAST ---
-      # Initializes the CodeQL scanner
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
@@ -28,7 +29,6 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
 
-      # --- Build ---
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -41,8 +41,6 @@ jobs:
 
   push-to-registry:
     name: Push to Docker Hub
-    # Only run this job if the 'build-and-scan' job succeeded
-    # AND it's a push event (not a PR) to the main branch
     needs: build-and-scan
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest

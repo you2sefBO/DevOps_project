@@ -15,7 +15,7 @@ spec:
       containers:
       - name: server
         # !! IMPORTANT: Change this to your Docker Hub image !!
-        image: YOUR_USERNAME/my-devops-project:latest
+        image: youssef348/my-devops-project:latest
         imagePullPolicy: Always # Always pull the latest tag
         ports:
         - containerPort: 8000

@@ -62,5 +62,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          push: true # Actually push the image
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-devops-project:latest
+          push: true 
+          tags: ${{ secrets.youssef348 }}/my-devops-project:latest

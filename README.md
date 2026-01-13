@@ -36,8 +36,8 @@ A simple FastAPI service built to demonstrate end-to-end DevOps practices, inclu
 
 ```bash
 # Clone the repo
-git clone [YOUR_REPO_URL]
-cd [YOUR_REPO_NAME]
+git clone https://github.com/you2sefBO/DevOps_project
+cd DevOps_project
 
 # Create a virtual environment
 python3 -m venv venv

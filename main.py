@@ -28,7 +28,6 @@ async def add_trace_id(request: Request, call_next):
 
     response = await call_next(request)
 
-    # Add the trace ID to the response headers
     response.headers["X-Trace-ID"] = trace_id
     logger.info(
         f"request completed: status_code={response.status_code} "
@@ -45,7 +44,6 @@ async def startup():
 
 @app.get("/")
 async def read_root(request: Request):
-    # You can access the trace ID in your endpoints
     trace_id = request.state.trace_id
     return {"message": "Hello, DevOps World!", "trace_id": trace_id}
 

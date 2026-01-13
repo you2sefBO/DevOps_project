@@ -16,7 +16,6 @@ app = FastAPI()
 # --- Observability: Tracing ---
 @app.middleware("http")
 async def add_trace_id(request: Request, call_next):
-    # Generate a unique trace ID
     trace_id = str(uuid.uuid4())
     request.state.trace_id = trace_id
 

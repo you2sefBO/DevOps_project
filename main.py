@@ -1,8 +1,8 @@
 import uvicorn 
 import logging
 import uuid
-from fastapi import FastAPI, Request # type: ignore
-from prometheus_fastapi_instrumentator import Instrumentator # type: ignore
+from fastapi import FastAPI, Request 
+from prometheus_fastapi_instrumentator import Instrumentator 
 
 # Configure logging
 logging.basicConfig(

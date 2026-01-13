@@ -5,7 +5,6 @@ from fastapi import FastAPI, Request # type: ignore
 from prometheus_fastapi_instrumentator import Instrumentator # type: ignore
 
 # Configure logging
-# This will print logs in a structured way
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
@@ -15,7 +14,6 @@ logger = logging.getLogger(__name__)
 app = FastAPI()
 
 # --- Observability: Tracing ---
-# Middleware to add a unique trace ID to every request
 @app.middleware("http")
 async def add_trace_id(request: Request, call_next):
     # Generate a unique trace ID
@@ -23,7 +21,6 @@ async def add_trace_id(request: Request, call_next):
     request.state.trace_id = trace_id
 
     # --- Observability: Logging ---
-    # Log the incoming request with the trace ID
     logger.info(
         f"request received: method={request.method} "
         f"path={request.url.path} trace_id={trace_id}"

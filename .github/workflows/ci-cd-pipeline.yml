@@ -36,7 +36,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          push: false # Don't push yet, just build
+          push: false 
           tags: my-app:latest
 
   push-to-registry:

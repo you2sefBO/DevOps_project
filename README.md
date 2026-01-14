@@ -19,7 +19,7 @@ A simple FastAPI service built to demonstrate end-to-end DevOps practices, inclu
 * **CI/CD:** GitHub Actions
 * **Deployment:** Kubernetes (minikube)
 * **Security:** GitHub CodeQL (SAST), OWASP ZAP (DAST)
-* **Observability:** Prometheus, OpenTelemetry (tracing)
+* **Observability:** Prometheus
 
 ---
 
@@ -32,7 +32,7 @@ A simple FastAPI service built to demonstrate end-to-end DevOps practices, inclu
 * minikube
 * kubectl
 
-### 1. Local Python Environment (Optional)
+### 1. Local Python Environment 
 
 ```bash
 # Clone the repo
